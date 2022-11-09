@@ -28,7 +28,7 @@ export const ErrorLog = (app: Application) => {
     app.use(expressWinston.errorLogger({
         transports: [
             new winston.transports.Console(),
-          new winston.transports.File({ filename: `${global.__basepath}/logs/errors.log`, level: 'error' }),
+          new winston.transports.File({ filename: `${global.__basepath}/.logs/errors.log`, level: 'error' }),
         ],
         format: winston.format.combine(
             winston.format.prettyPrint(),
