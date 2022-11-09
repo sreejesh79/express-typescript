@@ -6,7 +6,7 @@ export interface RouteDefinition {
     methodName: string;
 }
 
-export const BASE_PATH: string = '/api/v1';
+export const BASE_PATH: string = '';
 export const Middlewares = (): void => {
     require("../api/middlewares/api.middleware");
    // require("../api/middlewares/auth.middleware");

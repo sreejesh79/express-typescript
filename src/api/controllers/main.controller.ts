@@ -10,7 +10,6 @@ export class MainController {
 
 	@Get( '' )
 	public index = async ( req: Request, res: Response, next: NextFunction ) =>{
-		console.log('index');
 		try {
 			res.status( 200 ).send( 'Welcome to Express Boilerplate' );
 		} catch ( err ) {

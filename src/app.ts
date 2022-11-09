@@ -17,6 +17,7 @@ import { router } from './decorators/controller.decorator'
 import { mwRouter } from './decorators/middleware.decorator';
 import { ErrorHandler } from "config/errors";
 import { Logger } from 'config/logger';
+import { BASE_PATH } from 'config/routes';
 
 class App {
 
@@ -67,7 +68,7 @@ class App {
             const httpServer = http.createServer(this._app);
             httpServer.listen(this._port, () => {
                // Logger.info(`App listening on the http://localhost:${this._port}`);
-               console.log('\x1b[35mINFO\x1b[0m',`App listening on  http://localhost:${this._port}/api/v1`);
+               console.log('\x1b[35mINFO\x1b[0m',`App listening on  http://localhost:${this._port}${BASE_PATH}`);
             })
         } else {
             const httpsServer = https.createServer({
@@ -75,7 +76,7 @@ class App {
                 cert: fs.readFileSync(process.env.SSL_CERT),
               }, this._app);
               httpsServer.listen(this._port, () => {
-                Logger.info(`App listening on the http://localhost:${this._port}/api/v1`);
+                Logger.info(`App listening on the http://localhost:${this._port}${BASE_PATH}`);
                 });
         }
         
